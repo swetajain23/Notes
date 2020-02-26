@@ -1,0 +1,242 @@
+https://career.guru99.com/top-40-interview-questions-on-git/
+https://www.edureka.co/blog/interview-questions/git-interview-questions/
+
+acd <dir-path>
+----------------------
+git status
+
+git add <file-path>  /  git add src/*(if we are already on that file path)
+
+git commit -m ""
+
+//<Esc> :wq
+
+git push origin tracer/ui
+
+ git push --set-upstream origin tracer/UI
+
+
+git commit -m "Test cases for logicaldw project"
+git push origin logicaldw_test(push tests on origin branch)
+
+<--create branch-->
+-----------
+git clone http://git.impetus.co.in/RND-LABS/snappydata.git -b tracer/sof-0.0.1 --recursive
+
+git checkout -b branchname
+eg: git checkout -b baseline-sweta
+git push --set-upstream origin branchname
+eg: git push --set-upstream origin baseline-sweta
+
+<--revert file and pull-->
+----------------------
+
+git checkout -- pom.xml src/*(revert file)
+
+git pull origin tracer/UI
+
+mvn eclipse:eclipse
+
+(run project except test files)
+--------------------------
+
+mvn clean install -DskipTests(run project except test files)
+
+<--pull project from git-->
+------------------------------
+
+ git clone http://git.impetus.co.in/RND-LABS/logicaldw.git
+
+---------------------------
+
+git clone <file path on git>
+>>git submodule update --init --recursive
+ git diff  src/test/resources/spring-test-context.xml
+
+vi pom.xml (view pom file)
+
+ rm -r target/ (remove )
+
+rm logicaldw.log
+
+ls -a
+
+du -sh /*
+
+git fetch
+
+git status
+
+ls
+
+<--make latest changes in your brach from parent branch-->
+
+go to your own branch (tracer/UI_Analytix)
+git rebase tracer/UI
+
+
+>>git push origin baseline-spark2.3.2-sweta
+>>git diff
+>>git status
+>>git checkout -- core/src/test/scala/org/apache/spark/sql/ColumnTableTest.scala (revert)
+>>git checkout baseline-spark2.3.2
+
+sweta.jain@Impetus-B0162 MINGW64 /d/git_workspace/snappydata (baseline-spark2.3.2)
+>>git pull origin
+
+sweta.jain@Impetus-B0162 MINGW64 /d/git_workspace/snappydata (baseline-spark2.3.2)
+>>git checkout baseline-spark2.3.2-sweta
+Display all 87 possibilities? (y or n)
+
+sweta.jain@Impetus-B0162 MINGW64 /d/git_workspace/snappydata (baseline-spark2.3.2)
+>> git checkout baseline-spark2.3.2-sweta
+Switched to branch 'baseline-spark2.3.2-sweta'
+
+sweta.jain@Impetus-B0162 MINGW64 /d/git_workspace/snappydata (baseline-spark2.3.2-sweta)
+>> git rebase baseline-spark2.3.2
+
+sweta.jain@Impetus-B0162 MINGW64 /d/git_workspace/snappydata (baseline-spark2.3.2-sweta)
+>> git push -f origin baseline-spark2.3.2-sweta
+
+>>git log
+
+
+
+ls ..
+ls -lrt
+git --help
+git log
+git rebase master
+git checkout master
+
+<--backing the project-->
+--------------------------
+
+ mkdir ../BackupProject
+ cp -r logicaldw/ ../BackupProject/
+
+-----------------------------
+
+ git chechout -b "logicaldw_test"
+              ---
+
+ git push -f origin LearningHibernateSpring
+          ---
+--------------------------------------------------------
+
+ git clone http://git.impetus.co.in/RND-LABS/logicaldw.git
+
+ git branch -b tracer/ui
+ cd logicaldw/
+ git checkout  -b tracer/ui
+git branch
+mvn clean install
+
+
+mvn install command skip testcases:
+
+--------------------------------------------
+
+mvn install -DskipTests
+mvn install -Dmaven.test.skip=true
+mvn install -DskipTests=false
+
+mvn reset changes command
+---------------------------
+git reset --hard
+
+for temporary save the changes:
+------------------------
+git stash
+
+for get back changes:
+-------------------------
+git stash pop
+
+
+mvn install:install-file -Dfile=./rnd_consumer_processingrequest-0.0.1-SNAPSHOT.jar -DgroupId=com.impetus -DartifactId=idw_consumer_processingrequest -Dversion=0.0.1-SNAPSHOT -Dpackaging=jar
+
+
+Snappydata Commands:
+
+
+git submodule update --init --recursive
+
+git checkout -- core/src/test/scala/org/apache/spark/sql/DiskStoreDDLTest.scala
+
+git pull
+
+
+gradlew snappy-core:scalaTest \ --tests "a test"
+
+
+
+git checkout -- core/src/* launcher/*
+git checkout -- store/*
+git checkout baseline
+git submodule sync --recursive && git submodule update --init --recursive
+
+git checkout store/.git
+git checkout -- store/.git
+git checkout -- store/*
+del BACKUPGFXD-DEFAULT-DISKSTORE.if*
+git reset hard 3bd38bbd1bbab9efa472ab2ac7518b2b9b22f0f1
+git reset -- 3bd38bbd1bbab9efa472ab2ac7518b2b9b22f0f1
+
+git diff gemfire-shared/src/main/java/com/gemstone/gemfire/internal/shared/ClientSharedUtils.java
+
+git checkout -- gemfire-shared/src/main/java/com/gemstone/gemfire/internal/shared/ClientSharedUtils.java
+
+git checkout baseline
+git pull
+git checkout baseline-unittest
+git log
+
+ 
+
+
+
+git branch
+git checkout baseline-unittest
+git rebase baseline
+git checkout -b baseline-unittest-sweta
+git status
+git merge --abort
+git log
+git reset --hard HEAD~5
+git pull
+git log
+git branch -D baseline-unittest-sweta
+git checkout -b baseline-unittest-sweta
+
+
+git push -f origin baseline_sweta
+
+git update commands after removing:
+=>git checkout baseline
+=>rm -rf .git/modules/
+=>vi .git/config
+=>rm -rf store/ spark-jobserver/
+=>ls
+=>rm -r vm_*
+=>ls
+=>git submodule update --init --recursive
+
+git branch -d baseline-sweta
+git checkout -b baseline-sweta
+
+==>>>>>>  ./gradlew product
+
+git checkout baseline
+git pull
+git merge baseline-sweta
+git push origin baseline
+git checkout baseline-sweta
+git log
+git status
+
+
+git rm core/src/test/scala/org/apache/spark/sql/QueriesTest.scala core/src/test/scala/org/apache/spark/sql/SnappyTableTest.scala
+git reset HEAD core/src/test/scala/org/apache/spark/sql/QueriesTest.scala
+
+

@@ -1,0 +1,26 @@
+http://172.25.41.53:8090/idw_ml_rest_request/idw_ml_request/request
+
+ tailf spark-logs.log
+
+ ps -eaf | grep 17030
+
+hadoop fs -ls "path"
+hadoop fs -cat "path"
+
+tailf logs/spark-logs.log
+
+ vim logs/spark-logs.log
+
+ cd /ilabs/rduser/softwares/idw_analytics/
+
+
+esc + (shift :) + q
+
+control + c
+
+
+ls -lrt
+
+cd logs
+
+ hadoop fs -cat /user/rduser/analyticsdata/outputs/correlation40020/* | wc -l

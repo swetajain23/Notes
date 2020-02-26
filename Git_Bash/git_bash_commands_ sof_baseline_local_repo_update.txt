@@ -1,0 +1,19 @@
+Update  your local branch with baseline-spark2.3.2. 
+Refer the steps below.
+
+>> push all changes to baseline-sweta
+>> checkout to baseline branch
+>> git pull
+>> checkout to baseline-spark2.3.2
+>> remove folders modules,store, server-jobs using some commands given in mail by ashish
+>> Go to your repo-home-
+1.	rm -rf .git/modules/
+2.	open .git/config file and remove entries related to spark-jobserver and snappy-store submodules
+3.	rm -rf store
+4.	rm -rf spark-jobserver
+5.	git submodule update --init –recursive
+
+
+
+
+>> ./gradlew snappy-core:scalaTest 
