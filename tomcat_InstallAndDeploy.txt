@@ -1,0 +1,47 @@
+steps to install tomcat server on centos rhel:
+
+Step1: Check Java Version
+java -version
+
+Step2: Download Tomcat7 Archive
+
+Download Apache Tomcat archive file from Apache tomcat official download page. You can use below wget command to download it.
+
+cd /tmp
+http://www-us.apache.org/dist/tomcat/tomcat-7/v7.0.93/bin/apache-tomcat-7.0.93.tar.gz
+
+After competed download extract archive file in /tmp directory and move to proper location as per your need. We are placing this under /usr/local directory.
+
+tar xzf apache-tomcat-7.0.93.tar.gz
+mv apache-tomcat-7.0.93 /usr/local/tomcat7
+
+Step 3 – Start Tomcat Server
+
+Tomcat is very easy to use, There is no need to compile its source. You simply extract the archive and start the tomcat server. Tomcat by default start on port 8080, Make sure no other services are running on same port using ‘telnet localhost 8080’.
+
+cd /usr/local/tomcat7
+./bin/startup.sh
+
+Step 4 – Access Tomcat in Browser
+
+tomcat server works on port 8080 default. To access Tomcat on the web browser by connecting your server on port 8080.
+
+http://localhost:8080 
+
+Step 5 – Setup User Accounts
+
+Finally we need to create user accounts to secure and access admin/manager pages. Edit conf/tomcat-users.xml file in your editor and paste inside <tomcat-users> </tomcat-users> tags.
+
+<!-- user manager can access only manager section -->
+<role rolename="manager-gui" />
+<user username="manager" password="_SECRET_PASSWORD_" roles="manager-gui" />
+
+<!-- user admin can access manager and admin section both -->
+<role rolename="admin-gui" />
+<user username="admin" password="_SECRET_PASSWORD_" roles="manager-gui,admin-gui" />
+
+Step 6 – Stop Tomcat Server
+
+Finally, if you feel that there are no need of Tomcat in your system, You can simply stop it using below command from tomcat home directory.
+
+./bin/shutdown.sh
