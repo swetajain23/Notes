@@ -1,0 +1,293 @@
+for install Linux:
+download two softwares:
+1. ubuntu-12.10 => www.ubuntu.com
+2. Universal USB Installer-1.9.1.7 =>www.pendrivelinux.com
+
+How to create User in linux:
+1.sudo adduser <username>cd ..
+cmd => sudo adduser rduser
+       sudo su rduser
+2.set password for new user:
+   cntrl+R , ssh set ip and user name
+   sudo su rduser
+   enter new password
+   cntrl+R , ssh set ip and user name:
+=> ssh rduser@172.25.41.20
+
+changing from user to superuser:
+>>sudo su -
+changing from superuser to user:
+>>sudo su - user 
+
+for exit:
+use cntrl + D
+
+how to stop firewall:
+suso su
+pwd
+service firewalld status
+service firewalld stop
+
+How to delete user in linux:
+cmd => sudo userdel rduser
+
+ls => list of current directories and files in the present working directory
+ls -R => list of current directories with subdirectories as well
+ls -a => list hidden files as well
+ls -la => lists files and directories with detailed information
+
+
+Getting detailed file information: =>
+drwxr-xr-x => file types and accessermissions
+22 => memory block
+guru99 => owner of file
+guru99 => user group
+4096 => size(bytes)
+2013-01-04 23:57 => date & time
+.bash_history => file & directory name
+
+
+Viewing Hidden Files: =>
+ls -a => shows all hidden files start with '.' period symbol
+
+For see the path: =>
+pwd
+
+
+Creating & Viewing Files: =>
+The cat Command => use to display , copy , combine and create text files
+cat > file1 => command for create file (cntrl c)
+touch file4 => command for create file
+cat file1 => display the file
+cat > file2
+cat file1 file2 > newfile => combine both files and create newfile
+cat newfile => display
+
+
+Deleting Files: =>
+rm<filename>
+cmd => rm Test => remove Test file
+ls
+
+
+Moving Files: =>
+mv<filename><newfilelocation>
+cmd => mv test /home/guru99/Files => Permission denied
+
+move file from local system to remote location:
+syntax: scp <file_path> <user>@<remote_host>:<remote_dir>
+=>> cd D:/sampleData
+=>> scp employees.csv rduser@impetus-b0063:~
+
+move firle from remote location to local system:
+syntax: scp <user>@<remote_host>:<remote_file_path> <local_dir>
+
+move command needs super user permission so we will use sudo command.
+sudo mv test /home/guru99/Files => ask for password for authentication
+sudo command allows regular users to run programs as superuser or root
+sudo maintain log of each command run.
+
+Renaming Files: =>
+mv<filename><newfilename>
+cmd => mv test test1 => rename test file with test1
+
+
+Creating Directories: =>
+mkdir<directoryname>
+ cmd => mkdir songs
+
+How to create parent directories: =>
+mkdir -p foo/bar/baz
+
+creating directory at a new location: =>
+mkdir</path/new_directory_name>
+
+cmd => mkdir /tmp/music
+
+Creating multiple directories at a time: =>
+mkdir<dir1><dir2><dir3>
+
+cmd => mkdir direc direc1 direc2
+ls => will show list
+
+
+Removing Directories: =>
+rmdir<directoryname>
+cmd => rmdir direc
+>> rm -r direc
+
+Renaming Directory: =>
+mv directoryname newdirectoryname
+cmd => mv direc2 direc4
+
+changing column seperator:
+>>tr '|' ',' <filename
+
+
+The 'Man' Command: =>
+Man stands for manual
+The reference book for Linux
+It is similar to HELP file
+man<command>
+cmd => man ls => will give list directory contents
+
+The History Command: =>
+shows commands have used in the past
+cmd => history
+
+The Clear Command: =>
+command cleans the terminal
+cmd => clear
+
+Linux Security: =>
+three owners => user,group,other
+ls -l => give list
+r = read permission
+w = write permission
+x = execute permission
+- = no permission
+
+-rw-rw-r--
+first hiphen '-' shows it is a file
+rw- shows first user can read and write the file only
+rw- shows second owner 'group' can read and write the file
+r-- shows third owner 'other' can read the file only
+
+drwxr-xr-x
+d shows directory
+rwx
+r-x
+r-x
+
+
+Changing file/directory permissions: =>
+chmod permissions filename
+=> stands for 'change mode'
+=>using the command, we can set permissions(read,write,execute) on a file/directory for the owner, group anf the world.
+chmod can be used in 2 ways: =>
+1. Absolute(Numeric) mode:
+ex: cmd => chmod 764 test => read,write & execute for the user
+                          => read & write for group
+                          => read for All
+
+
+2. Symbolic mode
+=> change permissions for a specific owner
++ => add a permission to a file or directory
+- => removes the permission
+= => sets the permission and overrides the permissions set earlier
+
+User denotations:
+u => user/owner
+g => group
+o => other
+a => all
+
+ex: cmd => chmod o=rwx test =>change the permission for other
+    cmd => chmod g+x test => add execute permission for group
+    cmd => chmpd u-r test  => remove read permission for user
+
+
+Changing Ownership and Group:
+chown user<filename>
+chown user:group<filename>
+ex: cmd => sudo chown root commands (previously owner was guru99 but after this command owner is root for file commands)
+
+ex: cmd => sudo chown gurur99:guru99 commands(change both owner and group owner) 
+
+ex: cmd => sudo chgrp root commands (change the group user owner to root)
+
+Tips on Usergroups:
+1. /etc/group => it contains all groups defined in the system
+
+file system -> etc directory -> search for group files
+
+2. command 'groups' => to find all the groups you are the member of
+
+3. Command 'newgrp' => as a member of new group
+cmd => newgrp cdrom
+       cat > test
+       ls -dl test
+4. 2 Groups cannot own the same file.
+
+
+Print, E-mail & Install Software on Linux: =>
+1. pr Command
+2. pr -x tools => divide the data into x columns
+3.pr -h HomeTools tools => HomeTools will be header of tools file
+4. pr -n => denotes all lines with numbers
+5. lp filename or lpr filename => for printing a filename
+6. lp -nN filename or lpr n filename => prinnting 'N' copies of file
+7. lp -dPrintername filename or lpr -PPrintername filename
+
+
+Installing Software: =>
+1.sudo apt-get install softwarename
+ex: sudo apt-get install vlc
+
+sending email:
+first install mailx: =>
+1.sudo apt-get install mailx
+2. y
+3. type of mail configuration
+installed
+
+4.
+
+Environment Variables:
+
+echo $VARIABLE =>To display value of a variable
+
+env            =>Displays all environment variables
+
+VARIABLE_NAME= variable_value 
+               =>Create a new variable
+
+unset          =>Remove a variable
+
+export Variable=value 
+               =>To set value of an environment variable
+
+Linux/Unix SSH, Ping, FTP, Telnet Communication Commands: =>
+
+SSH: =>
+SSH username@ip-address or hostname
+Ping: =>
+ping hostname="" or=""
+cmd: ping 172.25.41.20
+FTP: =>
+ftp hostname="" or=""
+cmd: ftp ftp.javatutorialhub.com
+
+
+VI Text Editor with Commands: Linux/Unix Tutorial: =>
+
+1. vi filename
+2.vi editor open in the command mode
+3.press 'i' to enter the insert mode
+4.Add content
+5.press Esc command mde. press :wq to save and quit.
+6.check the content of file => cat filename
+
+
+"wget" command is a linux command line utility tha helps us to download the files from the web.
+
+=> wget http://example.com/sample.php
+
+tar command in Linux with examples:
+
+tar [option] [archive-file] [file or directory to be archived]
+
+Options:
+-c : Creates Archive
+-x : Extract the archive
+-f : creates archive with given filename
+-t : displays or lists files in archived file
+-u : archives and adds to an existing archive file
+-v : Displays Verbose Information
+-A : Concatenates the archive files
+-z : zip, tells tar command that create tar file using gzip
+-j : filter archive tar file using tbzip
+-W : Verify a archive file
+-r : update or add file or directory in already existed .tar file
+
